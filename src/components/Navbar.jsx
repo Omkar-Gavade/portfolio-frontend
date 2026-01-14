@@ -1,49 +1,126 @@
-import { useState } from "react";
+// import { useState } from "react";
+
+// export default function Navbar() {
+//   const [active, setActive] = useState("Home");
+
+//   const links = [
+//     "Home",
+//     "About",   
+//     "Skills",
+//     "Education",
+//     "Experience",
+//     "Projects",
+//     "Contact",
+//   ];
+
+//   return (
+//     <header className="fixed top-6 left-0 w-full z-50">
+//       <div className="flex items-center justify-center relative">
+
+//         {/* Center pill navbar */}
+//         <nav className="flex items-center gap-2 rounded-full bg-black/70 backdrop-blur-md px-3 py-2 border border-white/10">
+//           {links.map((link) => (
+//             <a
+//               key={link}
+//               href={`#${link.toLowerCase()}`}
+//               onClick={() => setActive(link)}
+//               className={`px-4 py-2 text-sm rounded-full transition-all
+//                 ${
+//                   active === link
+//                     ? "bg-white text-black"
+//                     : "text-gray-300 hover:text-white"
+//                 }`}
+//             >
+//               {link}
+//             </a>
+//           ))}
+//         </nav>
+
+//         {/* Right controls */}
+//         <div className="absolute right-8 flex items-center gap-3">
+//           {/* Language button (UI only for now) */}
+//           <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/70 border border-white/10 text-sm text-white">
+//             🇬🇧 English
+//           </button>
+
+//           {/* Theme toggle (UI only for now) */}
+//           <button className="w-10 h-10 rounded-full bg-black/70 border border-white/10 text-white flex items-center justify-center">
+//             🌙
+//           </button>
+//         </div>
+//       </div>
+//     </header>
+//   );
+// }
+
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState("home");
 
   const links = [
-    "Home",
-    "About",   
-    "Skills",
-    "Education",
-    "Experience",
-    "Projects",
-    "Contact",
+    "home",
+    "about",
+    "skills",
+    "education",
+    "experience",
+    "projects",
+    "contact",
   ];
 
-  return (
-    <header className="fixed top-6 left-0 w-full z-50">
-      <div className="flex items-center justify-center relative">
+  // Scroll-spy logic
+  useEffect(() => {
+    const sections = links.map((id) => document.getElementById(id));
 
-        {/* Center pill navbar */}
-        <nav className="flex items-center gap-2 rounded-full bg-black/70 backdrop-blur-md px-3 py-2 border border-white/10">
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-40% 0px -50% 0px",
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <header className="fixed top-4 left-0 w-full z-50 px-3">
+      <div className="flex flex-col items-center gap-3">
+
+        {/* Navbar pill */}
+        <nav className="flex items-center gap-2 rounded-full bg-black/70 backdrop-blur-md px-3 py-2 border border-white/10 overflow-x-auto scrollbar-hide max-w-full">
           {links.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase()}`}
-              onClick={() => setActive(link)}
-              className={`px-4 py-2 text-sm rounded-full transition-all
+              href={`#${link}`}
+              className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300
                 ${
                   active === link
                     ? "bg-white text-black"
                     : "text-gray-300 hover:text-white"
                 }`}
             >
-              {link}
+              {link.charAt(0).toUpperCase() + link.slice(1)}
             </a>
           ))}
         </nav>
 
         {/* Right controls */}
-        <div className="absolute right-8 flex items-center gap-3">
-          {/* Language button (UI only for now) */}
+        <div className="hidden md:flex items-center gap-3 md:absolute md:right-8 md:top-1/2 md:-translate-y-1/2">
           <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/70 border border-white/10 text-sm text-white">
             🇬🇧 English
           </button>
 
-          {/* Theme toggle (UI only for now) */}
           <button className="w-10 h-10 rounded-full bg-black/70 border border-white/10 text-white flex items-center justify-center">
             🌙
           </button>
