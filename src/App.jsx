@@ -1,0 +1,25 @@
+import Navbar from "./components/Navbar";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Experience from "./sections/Experience";
+import Projects from "./sections/Projects";
+import Contact from "./sections/Contact";
+import TechRing from "./components/TechRing";
+import Skills from "./sections/Skills";
+import Education from "./sections/Education";
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900">
+      <Navbar />
+      <Hero />
+      <About />
+      <TechRing />
+      <Skills />
+      <Education />
+      <Experience />
+      <Projects />
+      <Contact />
+    </div>
+  );
+}
