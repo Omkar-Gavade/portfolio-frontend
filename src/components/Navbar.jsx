@@ -5,8 +5,7 @@ export default function Navbar() {
 
   const links = [
     "Home",
-    "About",
-    
+    "About",   
     "Skills",
     "Education",
     "Experience",

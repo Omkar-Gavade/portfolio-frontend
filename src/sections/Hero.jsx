@@ -61,16 +61,18 @@ export default function Hero() {
 
           {/* Download CV */}
           <a
-            href="/resume.pdf"
-            className="flex items-center gap-2 px-7 py-3 rounded-full bg-white/10 border border-white/10 text-sm hover:bg-white/20 transition"
+            href="/Omkar_Gavade_CV.pdf"
+            download
+            className="px-6 py-3 rounded-full bg-white/10 border border-white/10
+             text-sm hover:bg-white/20 transition"
           >
-            Download CV <span>↓</span>
+            Download CV ↓
           </a>
 
           {/* Social Icons */}
           <div className="flex items-center gap-3 ml-2">
             <a
-              href="#"
+              href="https://www.linkedin.com/in/omkar-gavade/"
               className="w-11 h-11 flex items-center justify-center rounded-full border border-white/15 text-white hover:bg-white/10 transition"
               aria-label="LinkedIn"
             >
@@ -78,7 +80,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="#"
+              href="https://github.com/Omkar-Gavade"
               className="w-11 h-11 flex items-center justify-center rounded-full border border-white/15 text-white hover:bg-white/10 transition"
               aria-label="GitHub"
             >
@@ -86,7 +88,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="#"
+              href="https://www.instagram.com/gavadeomkar002/"
               className="w-11 h-11 flex items-center justify-center rounded-full border border-white/15 text-white hover:bg-white/10 transition"
               aria-label="Instagram"
             >
