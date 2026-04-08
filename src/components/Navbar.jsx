@@ -54,6 +54,7 @@
 // }
 
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [active, setActive] = useState("home");
@@ -95,37 +96,48 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-4 left-0 w-full z-50 px-3">
-      <div className="flex flex-col items-center gap-3">
+  <div className="flex flex-col items-center gap-3">
 
-        {/* Navbar pill */}
-        <nav className="flex items-center gap-2 rounded-full bg-black/70 backdrop-blur-md px-3 py-2 border border-white/10 overflow-x-auto scrollbar-hide max-w-full">
-          {links.map((link) => (
-            <a
-              key={link}
-              href={`#${link}`}
-              className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300
-                ${
-                  active === link
-                    ? "bg-white text-black"
-                    : "text-gray-300 hover:text-white"
-                }`}
-            >
-              {link.charAt(0).toUpperCase() + link.slice(1)}
-            </a>
-          ))}
-        </nav>
+    {/* Navbar pill */}
+    <nav className="flex items-center gap-2 rounded-full 
+                    bg-white/70 dark:bg-black/70
+                    backdrop-blur-md 
+                    px-3 py-2 
+                    border border-gray-200 dark:border-white/10 
+                    overflow-x-auto scrollbar-hide max-w-full">
 
-        {/* Right controls */}
-        <div className="hidden md:flex items-center gap-3 md:absolute md:right-8 md:top-1/2 md:-translate-y-1/2">
-          <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/70 border border-white/10 text-sm text-white">
-            🇬🇧 English
-          </button>
+      {links.map((link) => (
+        <a
+          key={link}
+          href={`#${link}`}
+          className={`px-4 py-2 text-sm rounded-full whitespace-nowrap transition-all duration-300
+            ${
+              active === link
+                ? "bg-black text-white dark:bg-white dark:text-black"
+                : "text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
+            }`}
+        >
+          {link.charAt(0).toUpperCase() + link.slice(1)}
+        </a>
+      ))}
+    </nav>
 
-          <button className="w-10 h-10 rounded-full bg-black/70 border border-white/10 text-white flex items-center justify-center">
-            🌙
-          </button>
-        </div>
-      </div>
-    </header>
+    {/* Right controls */}
+    <div className="hidden md:flex items-center gap-3 md:absolute md:right-8 md:top-1/2 md:-translate-y-1/2">
+
+      {/* Language */}
+      <button className="flex items-center gap-2 px-4 py-2 rounded-full 
+                         bg-white/70 dark:bg-black/70 
+                         border border-gray-200 dark:border-white/10 
+                         text-sm text-black dark:text-white">
+        🇬🇧 English
+      </button>
+
+      {/* Theme Toggle */}
+      <ThemeToggle />
+    </div>
+
+  </div>
+</header>
   );
 }

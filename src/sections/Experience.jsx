@@ -2,26 +2,31 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="min-h-screen bg-black text-white px-6 py-32 flex justify-center"
+      className="min-h-screen 
+                 bg-white dark:bg-black 
+                 text-black dark:text-white 
+                 px-6 py-32 flex justify-center"
     >
       <div className="max-w-4xl w-full">
         {/* Section Heading */}
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-semibold">My Experience</h2>
-          <p className="mt-3 text-gray-400">
+          <p className="mt-3 text-gray-600 dark:text-gray-400">
             Practical experience and community involvement.
           </p>
         </div>
 
         {/* Timeline */}
-        <div className="relative border-l border-white/20 pl-12 space-y-20">
+        <div className="relative border-l border-gray-300 dark:border-white/20 pl-12 space-y-20">
+
           {/* GDG Web Team Member */}
           <div className="relative">
             {/* Dot */}
             <span
               className="absolute left-[-25px] top-[6px]
                w-4 h-4 rounded-full
-               bg-black border-2 border-white"
+               bg-white dark:bg-black 
+               border-2 border-black dark:border-white"
             ></span>
 
             {/* Content */}
@@ -30,11 +35,11 @@ export default function Experience() {
                 Google Developer Groups (GDG)
               </h3>
 
-              <p className="text-sm text-gray-400 mt-1">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                 Web Team Member · Jan 2025 – Present
               </p>
 
-              <p className="mt-4 text-gray-300 leading-relaxed">
+              <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
                 Active member of the GDG Web Team, contributing to building and
                 maintaining web-based solutions for community events, workshops,
                 and developer initiatives. Collaborated with other developers to
@@ -48,7 +53,9 @@ export default function Experience() {
                     <span
                       key={skill}
                       className="px-3 py-1 text-xs rounded-full
-                                 border border-white/15 text-gray-300"
+                                 border border-gray-300 dark:border-white/15 
+                                 text-gray-700 dark:text-gray-300 
+                                 bg-gray-100 dark:bg-transparent"
                     >
                       {skill}
                     </span>
@@ -64,7 +71,8 @@ export default function Experience() {
             <span
               className="absolute left-[-25px] top-[6px]
                w-4 h-4 rounded-full
-               bg-black border-2 border-white"
+               bg-white dark:bg-black 
+               border-2 border-black dark:border-white"
             ></span>
 
             {/* Content */}
@@ -73,11 +81,11 @@ export default function Experience() {
                 Google Developer Groups (GDG)
               </h3>
 
-              <p className="text-sm text-gray-400 mt-1">
+              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                 Social Media Lead · Aug 2025 – Present
               </p>
 
-              <p className="mt-4 text-gray-300 leading-relaxed">
+              <p className="mt-4 text-gray-700 dark:text-gray-300 leading-relaxed">
                 Leading social media initiatives for GDG by managing content,
                 promoting events, and increasing community engagement across
                 platforms. Coordinated closely with the technical and design
@@ -95,7 +103,9 @@ export default function Experience() {
                   <span
                     key={skill}
                     className="px-3 py-1 text-xs rounded-full
-                               border border-white/15 text-gray-300"
+                               border border-gray-300 dark:border-white/15 
+                               text-gray-700 dark:text-gray-300 
+                               bg-gray-100 dark:bg-transparent"
                   >
                     {skill}
                   </span>
@@ -103,6 +113,7 @@ export default function Experience() {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
